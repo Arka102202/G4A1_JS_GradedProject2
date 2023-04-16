@@ -1,0 +1,7 @@
+*.map
+tsconfig.json
+package.json
+package-lock.json
+Data.json
+src/
+node_modules
