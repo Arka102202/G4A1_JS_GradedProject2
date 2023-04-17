@@ -1,5 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap");
 * {
-  background-color: aquamarine;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+input,
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+input {
+  cursor: text;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 100%;
+}
+
+.login {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: calc(100vh - 16rem);
+  margin: 2%;
+}
+.login__hero-box {
+  width: 20rem;
+  align-self: end;
+}
+.login__form {
+  align-self: start;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 2rem;
+  padding: 5rem 2rem;
+  width: 40rem;
+  font-size: 1.6rem;
+  font-family: "Lato", sans-serif;
+  border: 1px solid #232323;
+  border-radius: 0.5rem;
+}
+.login__form input, .login__form button {
+  width: 90%;
+  height: 3rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+}
+.login__form input {
+  background-color: #e8f0fe;
+}
+.login__form input::placeholder {
+  font-size: 2rem;
+  font-family: "Lato", sans-serif;
+}
+.login__form .show-password {
+  position: absolute;
+  width: 2.5rem;
+  transform: translateX(15rem);
+  cursor: pointer;
+}
+.login__form button {
+  background-color: #2b8a3e;
+  text-align: center;
+  color: #e8f0fe;
+}
+.login__form button:hover {
+  background-color: #319d47;
 }
 
 /*# sourceMappingURL=index.css.map */

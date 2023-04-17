@@ -5,7 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <script src="./build/index.js" type="module"></script>
     <title>Job search</title>
   </head>
-  <body></body>
+  <body>
+    <template>
+      <article class="login">
+        <div class="login__hero-box">
+          <img src="" alt="" />
+        </div>
+        <form class="login__form">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+          <div class="show-password">
+            <img src="./src/assets/logo/eye-with-eyelash.png" alt="" />
+          </div>
+          <button type="submit"></button>
+        </form>
+      </article>
+    </template>
+    <div id="root"></div>
+  </body>
 </html>
