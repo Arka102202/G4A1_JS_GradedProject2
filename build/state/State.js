@@ -1,4 +1,4 @@
-export class AppState {
+class AppState {
     constructor(state) {
         this.state = state;
         this.listeners = new Array();
