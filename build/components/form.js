@@ -1,8 +1,8 @@
-import { passwordState, formState } from "../state/StateSlice.js";
+import { formState, appState } from "../state/StateSlice.js";
 import { EyeEl } from "./EyeEL.js";
 export const Form = (host, insertPosition, props) => {
-    let count = 0;
-    const htmlValid = `<input
+    const componentCallBackFn = (state) => {
+        const htmlValid = `<input
             type="text"
             name="username"
             id="username"
@@ -17,37 +17,33 @@ export const Form = (host, insertPosition, props) => {
           <div class="show-password">
           </div>
           <button type="submit">Login</button>`;
-    const htmlInvalid = `<h1 style="color:#e03131;">Username and Password invalid</h1>
+        const htmlInvalid = `<h1 style="color:#e03131;">Username and Password invalid</h1>
     <button id="btn-ok">Ok</button>`;
-    const html = `${props?.fState ? htmlValid : htmlInvalid}`;
-    host.innerHTML = "";
-    host.insertAdjacentHTML(insertPosition, html);
-    if (props?.fState) {
-        const eyeElHost = document.querySelector(".show-password");
-        EyeEl(eyeElHost, "afterbegin", props);
-        eyeElHost.addEventListener("click", updataePasswordState);
-        if (count === 0) {
-            passwordState.addListener(updatePasswordStateListener);
-            count++;
+        const html = `${state ? htmlValid : htmlInvalid}`;
+        host.innerHTML = "";
+        host.insertAdjacentHTML(insertPosition, html);
+        if (state) {
+            const eyeElHost = document.querySelector(".show-password");
+            EyeEl(eyeElHost, "afterbegin", { pState: false });
+            host.addEventListener("submit", formStateUpdate);
         }
-    }
-    else {
-        document.getElementById("btn-ok").addEventListener("click", () => {
-            formState.setState(true);
-        });
-    }
+        else
+            document.getElementById("btn-ok").addEventListener("click", () => {
+                formState.setState(true);
+            });
+    };
+    componentCallBackFn(props.fState);
+    formState.addListener(componentCallBackFn);
 };
-function updatePasswordStateListener(state) {
-    EyeEl(document.querySelector(".show-password"), "beforeend", {
-        pState: state,
-    });
-}
-function updataePasswordState() {
-    let pState = passwordState.getState();
-    if (!pState)
-        document.getElementById("password").setAttribute("type", "text");
-    else
-        document.getElementById("password").setAttribute("type", "password");
-    passwordState.setState(!pState);
+function formStateUpdate(event) {
+    event.preventDefault();
+    if (document.getElementById("username").value !==
+        localStorage.getItem("username") ||
+        document.getElementById("password").value !==
+            localStorage.getItem("password")) {
+        formState.setState(false);
+        return;
+    }
+    appState.setState(true);
 }
 //# sourceMappingURL=form.js.map

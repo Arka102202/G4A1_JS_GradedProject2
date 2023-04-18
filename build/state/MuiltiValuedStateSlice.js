@@ -1,6 +1,6 @@
 class CandidatesState {
     constructor() {
-        this.listeners = new Array();
+        this.listeners = new Set();
         this.state = new Array();
     }
     addState(state) {
@@ -11,7 +11,7 @@ class CandidatesState {
         this.listeners.forEach((fn) => fn(this.state));
     }
     addListener(fn) {
-        this.listeners.push(fn);
+        this.listeners.add(fn);
     }
     getState() {
         return this.state;

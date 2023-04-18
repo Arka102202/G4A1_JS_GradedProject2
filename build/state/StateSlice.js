@@ -1,14 +1,14 @@
 class AppState {
     constructor(state) {
         this.state = state;
-        this.listeners = new Array();
+        this.listeners = new Set();
     }
     setState(state) {
         this.state = state;
         this.listeners.forEach((fn) => fn(this.state));
     }
     addListener(fn) {
-        this.listeners.push(fn);
+        this.listeners.add(fn);
     }
     getState() {
         return this.state;
@@ -23,14 +23,14 @@ class AppState {
 class FormState {
     constructor(state) {
         this.state = state;
-        this.listeners = new Array();
+        this.listeners = new Set();
     }
     setState(state) {
         this.state = state;
         this.listeners.forEach((fn) => fn(this.state));
     }
     addListener(fn) {
-        this.listeners.push(fn);
+        this.listeners.add(fn);
     }
     getState() {
         return this.state;
@@ -45,14 +45,14 @@ class FormState {
 class PasswordState {
     constructor(state) {
         this.state = state;
-        this.listeners = new Array();
+        this.listeners = new Set();
     }
     setState(state) {
         this.state = state;
         this.listeners.forEach((fn) => fn(this.state));
     }
     addListener(fn) {
-        this.listeners.push(fn);
+        this.listeners.add(fn);
     }
     getState() {
         return this.state;
@@ -64,7 +64,30 @@ class PasswordState {
         return this.state;
     }
 }
+class CandidateIndexState {
+    constructor(state) {
+        this.state = state;
+        this.listeners = new Set();
+    }
+    setState(state) {
+        this.state = state;
+        this.listeners.forEach((fn) => fn(this.state));
+    }
+    addListener(fn) {
+        this.listeners.add(fn);
+    }
+    getState() {
+        return this.state;
+    }
+    static useState(initialState) {
+        if (this.state)
+            return this.state;
+        this.state = new CandidateIndexState(initialState);
+        return this.state;
+    }
+}
 export const appState = AppState.useState(true);
 export const formState = FormState.useState(true);
 export const passwordState = PasswordState.useState(false);
+export const canditateIndexdState = CandidateIndexState.useState(0);
 //# sourceMappingURL=StateSlice.js.map
