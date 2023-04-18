@@ -3,12 +3,12 @@ import { Form } from "./form.js";
 export const Login = (host, insertPosition, props) => {
     let count = 0;
     const html = props?.appState
-        ? "<h1>Welome<h1>"
+        ? ""
         : `<article class="login">
    <div class="login__hero-box">
           <img src="./src/assets/img/login-page-bg.webp" alt="" />
         </div>
-        <form class="login__form">
+        <form class="login__form" autocomplete="off">
         </form>
       </article>`;
     host.innerHTML = "";

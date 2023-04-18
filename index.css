@@ -18,6 +18,7 @@ input {
 
 html {
   font-size: 62.5%;
+  font-family: "Lato", sans-serif;
 }
 
 img {
@@ -73,9 +74,39 @@ img {
   background-color: #2b8a3e;
   text-align: center;
   color: #e8f0fe;
+  transition: all 0.3s;
 }
 .login__form button:hover {
   background-color: #319d47;
+}
+
+.resume {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 90%;
+  margin: 3rem auto;
+  font-size: 1.6rem;
+}
+.resume__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resume__box {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.resume__box__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resume__box__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */
