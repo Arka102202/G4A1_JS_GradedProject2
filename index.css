@@ -229,6 +229,22 @@ img {
   width: 30%;
   height: 80vh;
 }
+.resume__box__error button {
+  height: 4rem;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  width: 10rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background-color: #495057;
+  color: #f1f3f5;
+  text-align: center;
+  transition: all 0.1s;
+}
+.resume__box__error button:hover {
+  background-color: #868e96;
+}
 
 .hidden {
   opacity: 0;
