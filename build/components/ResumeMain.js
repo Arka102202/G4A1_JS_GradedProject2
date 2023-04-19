@@ -1,5 +1,5 @@
 import { Data } from "../data/data.js";
-import { candidateIndexdState } from "../state/StateSlice.js";
+import { candidateIndexState } from "../state/StateSlice.js";
 import { ResumeMainPureObjectEl } from "./ResumeMainPureObjectEl.js";
 export const ResumeMain = (host, insertPosition, _) => {
     const html = `<section class="resume-main-section work-experience"></section>
@@ -37,6 +37,6 @@ export const ResumeMain = (host, insertPosition, _) => {
             info: candidate.achievements,
         });
     };
-    candidateIndexdState.addListener(componentCallBackfn);
+    candidateIndexState.addListener(componentCallBackfn);
 };
 //# sourceMappingURL=ResumeMain.js.map

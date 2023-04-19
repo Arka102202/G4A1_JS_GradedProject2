@@ -2,15 +2,15 @@ import { passwordState } from "../state/StateSlice.js";
 export const EyeEl = (host, insertPosition, props) => {
     const componentCallBackFn = (state) => {
         const img = state ? "eye-with-eyelash.png" : "eyelash.png";
-        const html = `<img src="./src/assets/logo/${img}" alt="" />`;
+        const html = `<img src="./build/assets/logo/${img}" alt="" />`;
         host.innerHTML = "";
         host.insertAdjacentHTML(insertPosition, html);
-        host.addEventListener("click", updataePasswordState);
+        host.addEventListener("click", updatePasswordState);
     };
     componentCallBackFn(props.pState);
     passwordState.addListener(componentCallBackFn);
 };
-function updataePasswordState() {
+function updatePasswordState() {
     let pState = passwordState.getState();
     if (!pState)
         document.getElementById("password").setAttribute("type", "text");

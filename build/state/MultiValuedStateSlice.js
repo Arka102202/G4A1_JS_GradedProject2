@@ -24,4 +24,4 @@ class CandidatesState {
     }
 }
 export const candidateState = new CandidatesState();
-//# sourceMappingURL=MuiltiValuedStateSlice.js.map
+//# sourceMappingURL=MultiValuedStateSlice.js.map

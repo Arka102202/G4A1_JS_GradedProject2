@@ -1,5 +1,5 @@
-import { candidateState } from "../state/MuiltiValuedStateSlice.js";
-import { candidateIndexdState } from "../state/StateSlice.js";
+import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { candidateIndexState } from "../state/StateSlice.js";
 export const Hobbies = (host, insertPosition, _) => {
     const componentCallBackfn = (state) => {
         const hobbies = candidateState.getState()[state].interests.hobbies;
@@ -11,6 +11,6 @@ export const Hobbies = (host, insertPosition, _) => {
         host.innerHTML = "";
         host.insertAdjacentHTML(insertPosition, html);
     };
-    candidateIndexdState.addListener(componentCallBackfn);
+    candidateIndexState.addListener(componentCallBackfn);
 };
 //# sourceMappingURL=Hobbies.js.map

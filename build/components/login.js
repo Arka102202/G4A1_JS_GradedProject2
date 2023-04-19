@@ -6,7 +6,7 @@ export const Login = (host, insertPosition, props) => {
             ? ""
             : `<article class="login">
    <div class="login__hero-box">
-          <img src="./src/assets/img/login-page-bg.webp" alt="" />
+          <img src="./build/assets/img/login-page-bg.webp" alt="" />
         </div>
         <form class="login__form" autocomplete="off">
         </form>

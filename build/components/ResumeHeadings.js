@@ -1,5 +1,5 @@
-import { candidateState } from "../state/MuiltiValuedStateSlice.js";
-import { candidateIndexdState } from "../state/StateSlice.js";
+import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { candidateIndexState } from "../state/StateSlice.js";
 export const ResumeHeadings = (host, insertPosition, _) => {
     const componentCallBackfn = (state) => {
         const candidate = candidateState.getState()[state];
@@ -8,6 +8,6 @@ export const ResumeHeadings = (host, insertPosition, _) => {
         host.innerHTML = "";
         host.insertAdjacentHTML(insertPosition, html);
     };
-    candidateIndexdState.addListener(componentCallBackfn);
+    candidateIndexState.addListener(componentCallBackfn);
 };
 //# sourceMappingURL=ResumeHeadings.js.map

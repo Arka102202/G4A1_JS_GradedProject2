@@ -89,5 +89,5 @@ class CandidateIndexState {
 export const appState = AppState.useState(true);
 export const formState = FormState.useState(true);
 export const passwordState = PasswordState.useState(false);
-export const candidateIndexdState = CandidateIndexState.useState(-1);
+export const candidateIndexState = CandidateIndexState.useState(-1);
 //# sourceMappingURL=StateSlice.js.map

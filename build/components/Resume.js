@@ -1,6 +1,6 @@
 import { Data } from "../data/data.js";
-import { candidateState } from "../state/MuiltiValuedStateSlice.js";
-import { appState, candidateIndexdState } from "../state/StateSlice.js";
+import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { appState, candidateIndexState } from "../state/StateSlice.js";
 import { ResumeNav } from "./ResumeNav.js";
 import { ResumeHeadings } from "./ResumeHeadings.js";
 import { ResumeAside } from "./ResumeAside.js";
@@ -15,7 +15,7 @@ export const Resume = (host, insertPosition, props) => {
             <div class="resume__box__header__headings">
             </div>
             <div class="resume__box__header__img">
-              <img src="./src/assets/img/generic-avatar.webp" alt="" />
+              <img src="./build/assets/img/generic-avatar.webp" alt="" />
             </div>
           </div>
           <div class="resume__box__body">
@@ -38,7 +38,7 @@ export const Resume = (host, insertPosition, props) => {
             ResumeAside(resumeAsideHost, "afterbegin", {});
             ResumeMain(resumeMainHost, "afterbegin", {});
             candidateState.addState(Data.resume);
-            candidateIndexdState.setState(0);
+            candidateIndexState.setState(0);
         }
     };
     componentCallBackfn(props.appState);

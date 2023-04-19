@@ -1,5 +1,5 @@
-import { candidateState } from "../state/MuiltiValuedStateSlice.js";
-import { candidateIndexdState } from "../state/StateSlice.js";
+import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { candidateIndexState } from "../state/StateSlice.js";
 export const TechnicalSkill = (host, insertPosition, _) => {
     const componentCallBackfn = (state) => {
         const skillName = candidateState.getState()[state].skills.name;
@@ -12,6 +12,6 @@ export const TechnicalSkill = (host, insertPosition, _) => {
         host.innerHTML = "";
         host.insertAdjacentHTML(insertPosition, html);
     };
-    candidateIndexdState.addListener(componentCallBackfn);
+    candidateIndexState.addListener(componentCallBackfn);
 };
 //# sourceMappingURL=TechnicalSkill.js.map
