@@ -2,6 +2,8 @@ import { candidateState } from "../state/MultiValuedStateSlice.js";
 import { candidateIndexState } from "../state/StateSlice.js";
 export const Hobbies = (host, insertPosition, _) => {
     const componentCallBackfn = (state) => {
+        if (state == -1)
+            return;
         const hobbies = candidateState.getState()[state].interests.hobbies;
         const html = `<h3>Hobbies</h3>
         <ul>

@@ -1,4 +1,6 @@
 import { Data } from "../data/data.js";
+import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { candidateIndexState, resultState } from "../state/StateSlice.js";
 export const NavSearchBox = (host, insertPosition, _) => {
     const html = `<input type="search" name="searchItem" id="search" placeholder="search by jobs"/>`;
     host.insertAdjacentHTML(insertPosition, html);
@@ -7,11 +9,22 @@ export const NavSearchBox = (host, insertPosition, _) => {
         let queryKey;
         if (event.key === "Enter") {
             queryKey = event.target.value;
-            Data.resume.filter((item) => item.basics.AppliedFor === queryKey);
+            const candidates = Data.resume.filter((item) => item.basics.AppliedFor === queryKey);
+            if (candidates.length === 0) {
+                resultState.setState(false);
+                candidateIndexState.setState(-1);
+                return;
+            }
+            candidateState.addState(candidates);
+            candidateIndexState.setState(0);
         }
     });
     searchEl.addEventListener("input", (event) => {
-        console.log(event.target.value);
+        if (!event.target.value) {
+            candidateState.addState(Data.resume);
+            resultState.setState(true);
+            candidateIndexState.setState(0);
+        }
     });
 };
 //# sourceMappingURL=NavSearchBox.js.map

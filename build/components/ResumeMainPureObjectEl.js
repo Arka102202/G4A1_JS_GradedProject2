@@ -9,10 +9,10 @@ export const ResumeMainPureObjectEl = (host, insertPosition, props) => {
         if (value) {
             html += `
         ${value instanceof Array
-                ? `${value.reduce((p, c) => `${p}<li>${c}</li>`, "")}`
+                ? `${value.reduce((p, c) => `${p}<li><p>${c}</p></li>`, "")}`
                 : `<li class=resume-main-${key.replace(/ /g, "")}> ${typeof value === "object"
                     ? (hasInnerObject = true)
-                    : `<span>${key} : </span> ${value}`}`}
+                    : `<span>${key} : </span> <p>${value}</p>`}`}
         </li>`;
             html += "\n";
         }

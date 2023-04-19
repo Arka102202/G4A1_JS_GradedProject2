@@ -4,6 +4,7 @@ class CandidatesState {
         this.state = new Array();
     }
     addState(state) {
+        this.state = new Array();
         if (state instanceof Array)
             this.state.push(...state);
         else

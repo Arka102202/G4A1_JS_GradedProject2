@@ -2,6 +2,8 @@ import { candidateState } from "../state/MultiValuedStateSlice.js";
 import { candidateIndexState } from "../state/StateSlice.js";
 export const PersonalInfo = (host, insertPosition, _) => {
     const componentCallBackfn = (state) => {
+        if (state == -1)
+            return;
         const phNo = candidateState.getState()[state].basics.phone;
         const email = candidateState.getState()[state].basics.email;
         const profile = candidateState.getState()[state].basics.profiles.network;

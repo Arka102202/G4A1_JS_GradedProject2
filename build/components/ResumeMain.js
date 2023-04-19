@@ -10,6 +10,8 @@ export const ResumeMain = (host, insertPosition, _) => {
       `;
     host.insertAdjacentHTML(insertPosition, html);
     const componentCallBackfn = (state) => {
+        if (state == -1)
+            return;
         const workExpHost = document.querySelector(".work-experience");
         const projectsHost = document.querySelector(".projects");
         const educationHost = document.querySelector(".education");

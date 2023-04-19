@@ -25,9 +25,20 @@ li span {
   font-weight: 600;
 }
 
+li p {
+  display: inline;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
 h3 {
   font-weight: 700;
   margin-bottom: 1rem;
+  letter-spacing: 0.8px;
+}
+
+h4 {
+  letter-spacing: 1px;
 }
 
 input {
@@ -142,9 +153,13 @@ img {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
-  background-color: #74c0fc;
+  background-color: #495057;
+  color: #f1f3f5;
   text-align: center;
   transition: all 0.1s;
+}
+.resume__nav button:hover {
+  background-color: #868e96;
 }
 .resume__box {
   display: grid;
@@ -165,8 +180,8 @@ img {
   font-size: 3rem;
 }
 .resume__box__header__img {
-  max-width: 10rem;
-  min-width: 10rem;
+  max-width: 15rem;
+  min-width: 15rem;
   display: grid;
   justify-items: start;
   align-items: center;
@@ -206,6 +221,13 @@ img {
 }
 .resume__box__body__main .education > ul > li {
   margin-bottom: 1rem;
+}
+.resume__box__error {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  width: 30%;
+  height: 80vh;
 }
 
 .hidden {

@@ -1,42 +1,24 @@
 import { Data } from "../data/data.js";
 import { candidateState } from "../state/MultiValuedStateSlice.js";
 import { appState, candidateIndexState } from "../state/StateSlice.js";
+import { ResumeBox } from "./ResumeBox.js";
 import { ResumeNav } from "./ResumeNav.js";
-import { ResumeHeadings } from "./ResumeHeadings.js";
-import { ResumeAside } from "./ResumeAside.js";
-import { ResumeMain } from "./ResumeMain.js";
 export const Resume = (host, insertPosition, props) => {
     const componentCallBackfn = (state) => {
-        const html = state
-            ? `<article class="resume">
+        if (!state)
+            return;
+        const html = `<article class="resume">
         <nav class="resume__nav"></nav>
         <article class="resume__box">
-          <div class="resume__box__header">
-            <div class="resume__box__header__headings">
-            </div>
-            <div class="resume__box__header__img">
-              <img src="./build/assets/img/generic-avatar.webp" alt="" />
-            </div>
-          </div>
-          <div class="resume__box__body">
-            <aside class="resume__box__body__aside">
-            </aside>
-            <main class="resume__box__body__main">
-            </main>
-          </div>
         </article>
-    </article>`
-            : "";
+    </article>`;
+        host.innerHTML = "";
         host.insertAdjacentHTML(insertPosition, html);
         if (state) {
             const resumeNavHost = document.querySelector(".resume__nav");
-            const resumeHeadingsHost = document.querySelector(".resume__box__header__headings");
-            const resumeAsideHost = document.querySelector(".resume__box__body__aside");
-            const resumeMainHost = document.querySelector(".resume__box__body__main");
+            const resumeBoxHost = document.querySelector(".resume__box");
             ResumeNav(resumeNavHost, "beforeend", {});
-            ResumeHeadings(resumeHeadingsHost, "afterbegin", {});
-            ResumeAside(resumeAsideHost, "afterbegin", {});
-            ResumeMain(resumeMainHost, "afterbegin", {});
+            ResumeBox(resumeBoxHost, "beforeend", { state: true });
             candidateState.addState(Data.resume);
             candidateIndexState.setState(0);
         }
