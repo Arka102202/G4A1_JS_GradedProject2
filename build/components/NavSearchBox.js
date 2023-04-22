@@ -9,22 +9,25 @@ export const NavSearchBox = (host, insertPosition, _) => {
         let queryKey;
         if (event.key === "Enter") {
             queryKey = event.target.value;
+            if (!queryKey)
+                return;
             const candidates = Data.resume.filter((item) => item.basics.AppliedFor === queryKey);
             if (candidates.length === 0) {
                 resultState.setState(false);
                 candidateIndexState.setState(-1);
                 return;
             }
-            candidateState.addState(candidates);
-            candidateIndexState.setState(0);
+            resetResumePage(candidates);
         }
     });
     searchEl.addEventListener("input", (event) => {
-        if (!event.target.value) {
-            candidateState.addState(Data.resume);
-            resultState.setState(true);
-            candidateIndexState.setState(0);
-        }
+        if (!event.target.value)
+            resetResumePage(Data.resume);
     });
+    function resetResumePage(candidates) {
+        candidateState.addState(candidates);
+        resultState.setState(true);
+        candidateIndexState.setState(0);
+    }
 };
 //# sourceMappingURL=NavSearchBox.js.map

@@ -9,9 +9,9 @@ export const ResumeNav = (host, insertPosition) => {
         <button class="btn-next">Next</button>
       </div>`;
     host.insertAdjacentHTML(insertPosition, html);
-    const searchBoxnHost = document.querySelector(".nav-search-box");
+    const searchBoxHost = document.querySelector(".nav-search-box");
     NavButton("prev");
-    NavSearchBox(searchBoxnHost, "beforeend", {});
+    NavSearchBox(searchBoxHost, "beforeend", {});
     NavButton("next");
 };
 //# sourceMappingURL=ResumeNav.js.map

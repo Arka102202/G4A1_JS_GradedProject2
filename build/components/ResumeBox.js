@@ -4,6 +4,7 @@ import { ResumeMain } from "./ResumeMain.js";
 import { candidateIndexState, resultState } from "../state/StateSlice.js";
 import { Data } from "../data/data.js";
 import { candidateState } from "../state/MultiValuedStateSlice.js";
+import { ResumeImg } from "./ResumeImg.js";
 export const ResumeBox = (host, insertPosition, props) => {
     const componentCallBackfn = (state) => {
         const html = state
@@ -11,7 +12,6 @@ export const ResumeBox = (host, insertPosition, props) => {
             <div class="resume__box__header__headings">
             </div>
             <div class="resume__box__header__img">
-              <img src="./build/assets/img/generic-avatar.webp" alt="" />
             </div>
           </div>
           <div class="resume__box__body">
@@ -28,9 +28,11 @@ export const ResumeBox = (host, insertPosition, props) => {
         host.insertAdjacentHTML(insertPosition, html);
         if (state) {
             const resumeHeadingsHost = document.querySelector(".resume__box__header__headings");
+            const resumeImgHost = document.querySelector(".resume__box__header__img");
             const resumeAsideHost = document.querySelector(".resume__box__body__aside");
             const resumeMainHost = document.querySelector(".resume__box__body__main");
             ResumeHeadings(resumeHeadingsHost, "afterbegin", {});
+            ResumeImg(resumeImgHost, "afterbegin", {});
             ResumeAside(resumeAsideHost, "afterbegin", {});
             ResumeMain(resumeMainHost, "afterbegin", {});
         }
