@@ -1,19 +1,20 @@
 import { candidateState } from "../state/MultiValuedStateSlice.js";
 import { candidateIndexState } from "../state/StateSlice.js";
 export const TechnicalSkill = (host, insertPosition, _) => {
-    const componentCallBackfn = (state) => {
-        if (state == -1)
-            return;
-        const skillName = candidateState.getState()[state].skills.name;
-        const skills = candidateState.getState()[state].skills.keywords;
-        const html = `<h3>Technical Skills ( <span>${skillName}</span> )</h3>
+  const componentCallBackfn = (state) => {
+    if (state == -1) return;
+    const skillName = candidateState.getState()[state].skills.name;
+    const skills = candidateState.getState()[state].skills.keywords;
+    const html = `<h3>Technical Skills ( <span>${skillName}</span> )</h3>
         <ul>
-        ${skills.reduce((pVal, cVal) => `${pVal}
-        <li>${cVal}</li>`, "")}
+        ${skills.reduce(
+          (pVal, cVal) => `${pVal}
+        <li>${cVal}</li>`,
+          ""
+        )}
         </ul>`;
-        host.innerHTML = "";
-        host.insertAdjacentHTML(insertPosition, html);
-    };
-    candidateIndexState.addListener(componentCallBackfn);
+    host.innerHTML = "";
+    host.insertAdjacentHTML(insertPosition, html);
+  };
+  candidateIndexState.addListener(componentCallBackfn);
 };
-//# sourceMappingURL=TechnicalSkill.js.map

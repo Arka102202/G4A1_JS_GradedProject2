@@ -5,4 +5,3 @@ localStorage.setItem("password", "Arkadyuti@1995");
 const rootEl = document.getElementById("root");
 Login(rootEl, "beforeend", { appState: false });
 Resume(rootEl, "afterbegin", { appState: false });
-//# sourceMappingURL=index.js.map

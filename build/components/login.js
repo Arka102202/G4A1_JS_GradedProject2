@@ -21,4 +21,3 @@ export const Login = (host, insertPosition, props) => {
     componentCallBackfn(props.appState);
     appState.addListener(componentCallBackfn);
 };
-//# sourceMappingURL=login.js.map

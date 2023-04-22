@@ -18,4 +18,3 @@ function updatePasswordState() {
         document.getElementById("password").setAttribute("type", "password");
     passwordState.setState(!pState);
 }
-//# sourceMappingURL=EyeEL.js.map
